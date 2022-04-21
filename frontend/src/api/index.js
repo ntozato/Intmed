@@ -34,4 +34,5 @@ const data = {
   postConsultas,
   removeConsulta
 }
+
 export default data;
