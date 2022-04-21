@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../../src/intmed-logo.png';
 import eye from '../../src/vector.svg';
 import './style.css';
 
 function Login() {
+  const [passwordInputType, setPasswordInputType] = useState("password");
+
+  const showPassword = () => {
+    if (passwordInputType === "password") {
+      setPasswordInputType("text");
+    } else {
+      setPasswordInputType("password")
+    }
+  }
+
   return (
     <div>
       <div className="logo">
@@ -14,8 +24,8 @@ function Login() {
         <div className="inputs">
           <input className="email-input" type="text" placeholder="Email ou Login" />
           <div className="eye-input-div">
-            <input className="password-input" type="password" placeholder="Senha" />
-            <button className="eye-button">
+            <input className="password-input" type={passwordInputType} placeholder="Senha" />
+            <button type="button" className="eye-button" onClick={() => showPassword()}>
               <img src={eye} alt="eye" className="eye" />
             </button>
           </div>
