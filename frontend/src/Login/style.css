@@ -1,3 +1,12 @@
+.login-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+}
+
 .inputs {
   display: flex;
   flex-direction: column;
@@ -82,6 +91,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 25px;
+  align-self: flex-start;
 }
 
 .logo h1 {

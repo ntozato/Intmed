@@ -1,0 +1,47 @@
+header {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* margin-bottom: 25px; */
+}
+
+header h1 {
+  font-family: sans-serif;
+  color: #444444;
+  font-size: 13px;
+}
+
+.logo-box-consulta {
+  width: 25px;
+  height: 25px;
+  background-color: #49B4BB;
+  border-radius: 8%;
+  margin-right: 5px;
+}
+
+.logo-consulta {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  font-size: 11px;
+}
+.menu p:first-of-type {
+  margin-right: 35px;
+  color: #A8A8A8;
+  font-family: sans-serif;
+}
+
+.menu p:nth-child(2n) {
+  color: #49B4BB;
+  font-family: sans-serif;
+}
+
+.home-content {
+  display: flex;
+  align-self: flex-start;
+}
+

@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 
 const url = 'http://localhost:3001/';
 
@@ -26,7 +26,7 @@ const postConsultas = (token) => axios.get(
 
 const removeConsulta = () => axios.delete(`${url}consultas/:id`);
 
-const data = {
+const api = {
   login,
   getEspecialidades,
   getMedicos,
@@ -35,4 +35,4 @@ const data = {
   removeConsulta
 }
 
-export default data;
+export default api;
