@@ -12,12 +12,20 @@
   padding: 0 0 0 2px;
 }
 
+.email-input:hover {
+  border: 1px solid rgb(27, 95, 163);
+}
+
 .password-input {
   border-radius: 4px 0 0 4px;
   width: 100%;
   height: 40px;
   border-width: 1px 0px 1px 1px;
   border-color:#A8A8A8;
+}
+
+.password-input:hover {
+  border-color: rgb(35, 96, 156);
 }
 
 .remember-password-checkbox {
@@ -47,7 +55,11 @@
   padding: 0;
   cursor: pointer;
   font-size: 16px;
-  /* font-weight: 400; */
+  background-color: white;
+}
+
+.create-btn:hover {
+  border: 2px solid rgb(27, 95, 163);
 }
 
 .access-btn {
@@ -60,7 +72,10 @@
   padding: 0;
   cursor: pointer;
   font-size: 16px;
-  /* font-weight: 400; */
+}
+
+.access-btn:hover {
+  border: 2px solid rgb(27, 95, 163);
 }
 
 .logo {
@@ -93,14 +108,8 @@
   display: flex;
 }
 
-/* .eye-input input {
-  border: 1px 0 1px 1px;
-} */
-
 .eye {
   height: 15px;
-  /* border-right: none; */
-  /* margin-right: 10px; */
 }
 
 .eye-button {
@@ -116,9 +125,3 @@
 textarea:focus, input:focus{
   outline: none;
 }
-
-/* .form-all {
-
-  box-shadow: none!important;
-
-} */
