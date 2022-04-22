@@ -1,0 +1,142 @@
+.logo-ca {
+  display: flex;
+  align-items: center;
+  /* margin-bottom: 25px; */
+}
+
+.logo-ca h1 {
+  font-family: sans-serif;
+  color: #444444;
+  font-size: 35px;
+}
+
+.logo-box-ca {
+  width: 50px;
+  height: 50px;
+  background-color: #49B4BB;
+  border-radius: 8%;
+  margin-right: 11px;
+}
+
+.create-account {
+  display: flex;
+  justify-content: flex-start;
+  color: #444444;
+  font-family: sans-serif;
+}
+
+.inputs-ca {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-input-ca {
+  margin-bottom: 20px;
+  border-radius: 4px;
+  width: 400px;
+  height: 40px;
+  border: 1px solid #A8A8A8;
+  padding: 0 0 0 2px;
+}
+
+.email-input-ca:hover {
+  border: 1px solid rgb(27, 95, 163);
+}
+
+.name-input-ca {
+  margin-bottom: 20px;
+  border-radius: 4px;
+  width: 400px;
+  height: 40px;
+  border: 1px solid #A8A8A8;
+  padding: 0 0 0 2px;
+}
+
+.name-input-ca:hover {
+  border: 1px solid rgb(27, 95, 163);
+}
+
+.password-input-div-ca {
+  display: flex;
+}
+
+.password-input-ca {
+  border-radius: 4px 0 0 4px;
+  width: 100%;
+  height: 40px;
+  border-width: 1px 0px 1px 1px;
+  border-color:#A8A8A8;
+}
+
+.password-input-ca:hover {
+  border-color: rgb(35, 96, 156);
+}
+
+.confirm-password-input-div {
+  display: flex;
+  margin-top: 20px;
+}
+
+.confirm-password-input {
+  border-radius: 4px 0 0 4px;
+  width: 100%;
+  height: 40px;
+  border-width: 1px 0px 1px 1px;
+  border-color:#A8A8A8;
+}
+
+.confirm-password-input:hover {
+  border-color: rgb(35, 96, 156);
+}
+
+.eye-button-ca {
+  display:flex;
+  border-width: 1px 1px 1px 0;
+  border-radius: 0 8% 8% 0;
+  background-color: white;
+  border-color: #A8A8A8;
+  align-items: center;
+  cursor: pointer;
+}
+
+.eye-ca {
+  height: 15px;
+}
+
+.buttons-ca {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.create-btn-ca {
+  width: 180px;
+  height: 40px;
+  border-radius: 8px;
+  color: #49B4BB;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: white;
+}
+
+.create-btn-ca:hover {
+  border: 2px solid rgb(27, 95, 163);
+}
+
+.access-btn-ca {
+  width: 180px;
+  height: 40px;
+  border-radius: 8px;
+  background: #49B4BB;
+  color: white;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.access-btn-ca:hover {
+  border: 2px solid rgb(27, 95, 163);
+}
