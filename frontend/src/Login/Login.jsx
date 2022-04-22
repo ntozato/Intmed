@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import logo from '../../src/intmed-logo.png';
 import eye from '../../src/vector.svg';
 import './style.css';
 
 function Login() {
   const [passwordInputType, setPasswordInputType] = useState("password");
+  const history = useHistory();
 
   const showPassword = () => {
     if (passwordInputType === "password") {
@@ -35,8 +37,8 @@ function Login() {
           <p className="remember-password-text">Lembrar minha senha</p>
         </div>
         <div className="buttons">
-          <button className="create-btn"><b>Criar conta</b></button>
-          <button className="access-btn"><b>Acessar</b></button>
+          <button className="create-btn" onClick={() => history.push("/create-account")}><b>Criar conta</b></button>
+          <button className="access-btn" onClick={() => history.push("/home")}><b>Acessar</b></button>
         </div>
       </form>
 
