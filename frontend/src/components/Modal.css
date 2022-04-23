@@ -1,0 +1,64 @@
+.modal-container {
+  width: 400px;
+  height: 400px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 9999px 700px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modal-background {
+  width: 600px;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  color: #444444;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  font-family: sans-serif;
+}
+
+select {
+  width: 400px;
+  height: 40px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  width: 180px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  background-color: white;
+  color: #49B4BB;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  border: 1px solid #49B4BB;
+}
+
+.confirm-btn {
+  width: 180px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  background-color: #49B4BB;
+  color: white;
+  cursor: pointer;
+}
+
+.confirm-btn:hover {
+  opacity: 0.9
+}

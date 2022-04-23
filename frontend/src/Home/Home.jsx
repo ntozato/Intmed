@@ -4,11 +4,13 @@ import logo from '../../src/intmed-logo.png';
 import vector from '../../src/mais-vector.svg';
 import xvector from '../../src/xvector.svg';
 import './style.css';
+import Modal from "../components/Modal";
 
 function Home() {
-  const [consultas, setConsultas] = useState();
+  const [consultas, setConsultas] = useState('');
+  const [openModal, setOpenModal] = useState(false);
 
-  const fetchData = async () => {
+  const fetchConsultas = async () => {
     const token = JSON.parse(localStorage.getItem('token'));
     const response = await api.getConsultas(token);
 
@@ -18,11 +20,13 @@ function Home() {
     };
   };
 
-  const renderData = () => {
+  
+
+  const renderConsultasData = () => {
     if (consultas) {
-      return consultas.map((consulta) => {
+      return consultas.map((consulta, index) => {
         return(
-          <tr>
+          <tr key={index}>
           <td align="left">{consulta.medico.especialidade.nome}</td>
           <td align="left">{`Dr. ${consulta.medico.nome}`}</td>
           <td align="left">{consulta.dia}</td>
@@ -40,11 +44,12 @@ function Home() {
   };
 
   useEffect(() => {
-    fetchData();
-  });
+    fetchConsultas();
+  }, []);
 
   return (
     <div className="home-content">
+      {openModal && <Modal closeModal={setOpenModal}/>}
       <header>
         <div className="logo-consulta">
           <img src={logo} alt="logo" className="logo-box-consulta"/>
@@ -58,7 +63,7 @@ function Home() {
       <section>
         <div className="info">
           <h4>Consulta Clínica</h4>
-          <button className="new-button">
+          <button className="new-button" onClick={() => setOpenModal(true)}>
             <img src={vector} alt="vector" className="vector"/>
             Nova Consulta
           </button>
@@ -74,7 +79,7 @@ function Home() {
               </tr>
             </thead>
             <tbody>
-              {consultas && renderData()}
+              {consultas && renderConsultasData()}
             </tbody>
           </table>
         </div>
