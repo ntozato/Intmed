@@ -105,7 +105,7 @@ function Modal({ closeModal }) {
         </div>
         <div className="inputs">
           <select onChange={({target}) => setEspecialidadeOption(target.value)}>
-            <option disabled selected hidden>Especialista</option>
+            <option disabled selected hidden>Especialidade</option>
             {renderEspecialidades()}
           </select>
           <select onChange={({target}) => setSelectedMedico(target.value)}>
