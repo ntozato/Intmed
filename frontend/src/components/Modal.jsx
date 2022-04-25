@@ -92,6 +92,8 @@ function Modal({ closeModal }) {
   }, [especialidadeOption]);
 
   useEffect(() => {
+    setHorarios('');
+    setDatas('');
     fetchAgendas();
   }, [selectedMedico]);
 
