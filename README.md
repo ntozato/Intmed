@@ -9,7 +9,7 @@
 
 1. Clone o repositório
 
-- `git clone https://github.com/ntozato/Intmed.git`.
+- `git clone https://github.com/ntozato/Intmed.git`
 - Entre na pasta do repositório que você acabou de clonar:
   - `cd Intmed`
 
