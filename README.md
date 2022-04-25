@@ -43,4 +43,4 @@
   
 ### Página Home
   - Ao clicar no botão `Nova Consulta` abrirá um formulário para ser preenchido. As opções do formulário são obtidas através da api.
-  - A api sempre retorna o mesmo valor, independente das opções preenchidas no formulário.
+  - Ao clicar no botão `Confirmar`, a api sempre retorna o mesmo valor, independente das opções preenchidas no formulário.
