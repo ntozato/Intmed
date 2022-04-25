@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import logo from '../../src/intmed-logo.png';
 import eye from '../../src/vector.svg';
@@ -10,6 +10,7 @@ function Login() {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
   const [isUserInvalid, setIsUserInvalid] = useState(false);
 
   const showPassword = () => {
@@ -29,24 +30,22 @@ function Login() {
   };
 
   const handleSubmit = async () => {
-    const user = {
-      username,
-      password
-    };
-
-    const data = await api.login(user);
-    
-    if(data.data.token) {
-      localStorage.setItem('token', `${JSON.stringify(data.data.token)}`);
-      history.push('/home');
-    } else {
-      setIsUserInvalid(true);
-    }
+      const user = {
+        username,
+        password
+      };
+  
+      const data = await api.login(user);
+      
+      if(data.data.token) {
+        localStorage.setItem('token', `${JSON.stringify(data.data.token)}`);
+        setRedirect(true);
+      }
   }
 
   return (
     <div className='content'>
-
+      { redirect && history.push("/home")}
     <div className="login-content">
         <div className="logo">
           <img src={logo} alt="logo" className="logo-box"/>
@@ -67,8 +66,8 @@ function Login() {
             <p className="remember-password-text">Lembrar minha senha</p>
           </div>
           <div className="buttons">
-            <button className="create-btn" onClick={() => history.push("/create-account")}><b>Criar conta</b></button>
-            <button className="access-btn" onClick={() => handleSubmit()}><b>Acessar</b></button>
+            <button type="button" className="create-btn" onClick={() => history.push("/create-account")}><b>Criar conta</b></button>
+            <button type="button" className="access-btn" onClick={() => handleSubmit()}><b>Acessar</b></button>
           </div>
         </form>
       </div>
