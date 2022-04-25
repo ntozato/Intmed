@@ -19,8 +19,14 @@ const getConsultas = (token) => axios.get(
   { headers: { authorization: `Token ${token}` } },
 );
 
-const postConsultas = (token) => axios.get(
+const getAgendas = (token) => axios.get(
+  `${url}agendas`,
+  { headers: { authorization: `Token ${token}` } },
+);
+
+const postConsultas = (token) => axios.post(
   `${url}consultas`,
+  {},
   { headers: { authorization: `Token ${token}` } },
 );
 
@@ -32,7 +38,8 @@ const api = {
   getMedicos,
   getConsultas,
   postConsultas,
-  removeConsulta
+  removeConsulta,
+  getAgendas
 }
 
 export default api;

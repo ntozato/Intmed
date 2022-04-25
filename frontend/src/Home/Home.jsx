@@ -45,7 +45,7 @@ function Home() {
 
   useEffect(() => {
     fetchConsultas();
-  }, []);
+  }, [openModal]);
 
   return (
     <div className="home-content">

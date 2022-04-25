@@ -62,3 +62,11 @@ select {
 .confirm-btn:hover {
   opacity: 0.9
 }
+
+.initial-option {
+  color: red;
+}
+
+select {
+  border-color: #A8A8A8;
+}
