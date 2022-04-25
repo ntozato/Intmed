@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import api from '../api/index';
 import logo from '../../src/intmed-logo.png';
 import eye from '../../src/vector.svg';
 import './style.css';
@@ -24,6 +25,12 @@ function CreateAccount() {
       setConfirmPassword("password");
     };
   };
+
+  const handleSubmit = async () => {
+    await api.criaConta();
+    localStorage.setItem('token', JSON.stringify("9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b"));
+    history.push("/home");
+  }
 
 
   return (
@@ -53,8 +60,8 @@ function CreateAccount() {
           </div>
         </div>
         <div className="buttons-ca">
-          <button className="create-btn-ca" onClick={() => history.push("/")}><b>Cancelar</b></button>
-          <button className="access-btn-ca" onClick={() => history.push("/home")}><b>Confirmar</b></button>
+          <button type="button" className="create-btn-ca" onClick={() => history.push("/")}><b>Cancelar</b></button>
+          <button type="button" className="access-btn-ca" onClick={() => handleSubmit()}><b>Confirmar</b></button>
         </div>
       </form>
     </div>

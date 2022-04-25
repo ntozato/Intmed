@@ -4,6 +4,8 @@ const url = 'http://localhost:3001/';
 
 const login = (user) => axios.post(`${url}users/login`, user);
 
+const criaConta = (user) => axios.post(`${url}users`, user);
+
 const getEspecialidades = (token) => axios.get(
   `${url}especialidades`,
   { headers: { authorization: `Token ${token}` } },
@@ -42,7 +44,8 @@ const api = {
   getConsultas,
   postConsultas,
   removeConsulta,
-  getAgendas
+  getAgendas,
+  criaConta
 }
 
 export default api;

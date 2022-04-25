@@ -68,8 +68,8 @@ function Home() {
           <h1>Medicar</h1>
         </div>
         <div className="menu">
-          <p>Usuário</p>
-          <a href="/">Desconectar</a>
+          <p>Nícolas Tozato</p>
+          <a onClick={() => localStorage.removeItem('token')} href="/">Desconectar</a>
         </div>
       </header>
       <section>
