@@ -30,7 +30,10 @@ const postConsultas = (token) => axios.post(
   { headers: { authorization: `Token ${token}` } },
 );
 
-const removeConsulta = () => axios.delete(`${url}consultas/:id`);
+const removeConsulta = (token) => axios.delete(
+  `${url}consultas/:id`,
+  { headers: { authorization: `Token ${token}` } },
+);
 
 const api = {
   login,

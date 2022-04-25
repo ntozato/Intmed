@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import logo from '../../src/intmed-logo.png';
 import eye from '../../src/vector.svg';
@@ -11,7 +11,7 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
-  const [isUserInvalid, setIsUserInvalid] = useState(false);
+  // const [isUserInvalid, setIsUserInvalid] = useState(false);
 
   const showPassword = () => {
     if (passwordInputType === "password") {

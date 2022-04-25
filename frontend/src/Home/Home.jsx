@@ -9,6 +9,7 @@ import Modal from "../components/Modal";
 function Home() {
   const [consultas, setConsultas] = useState('');
   const [openModal, setOpenModal] = useState(false);
+  const [updateConsultas, setUpdateConsultas] = useState(false);
 
   const fetchConsultas = async () => {
     const token = JSON.parse(localStorage.getItem('token'));
@@ -19,11 +20,21 @@ function Home() {
       setConsultas(data);
     };
   };
-
   
+  
+  const deleteConsulta = async () => {
+    const token = JSON.parse(localStorage.getItem('token'));
+    console.log(token);
+    await api.removeConsulta(token);
+    if (updateConsultas === false) {
+      setUpdateConsultas(true);
+    } else {
+      setUpdateConsultas(false);
+    };
+  };
 
   const renderConsultasData = () => {
-    if (consultas) {
+    if (consultas !== []) {
       return consultas.map((consulta, index) => {
         return(
           <tr key={index}>
@@ -32,7 +43,7 @@ function Home() {
           <td align="left">{consulta.dia}</td>
           <td align="left">{consulta.horario}</td>
           <td align="right">
-            <button className="desmarcar-btn">
+            <button type="button" onClick={() => deleteConsulta()} className="desmarcar-btn">
               <img src={xvector} alt="vector" className="xvector" />
               Desmarcar
             </button>
@@ -43,9 +54,10 @@ function Home() {
     };
   };
 
+
   useEffect(() => {
     fetchConsultas();
-  }, [openModal]);
+  }, [openModal, updateConsultas]);
 
   return (
     <div className="home-content">
