@@ -33,6 +33,11 @@ select {
   margin-bottom: 20px;
   background-color: white;
   cursor: pointer;
+  outline: 0;
+}
+
+select:hover {
+  border-color: #49B4BB;
 }
 
 .cancel-btn {
