@@ -57,8 +57,8 @@ function Modal({ closeModal }) {
 
     if (response) {
       const { data } = response;
-      const horario = data.filter((e) => e.medico.nome === selectedMedico)[0].horarios;
-      const dias = data.filter((e) => e.medico.nome === selectedMedico)[0].dia;
+      const horario = data.filter((e) => e.medico.nome === selectedMedico)[0]?.horarios;
+      const dias = data.filter((e) => e.medico.nome === selectedMedico)[0]?.dia;
       setDatas(dias);
       setHorarios(horario);
       console.log(dias);
@@ -74,6 +74,7 @@ function Modal({ closeModal }) {
   }
 
   const renderHorarios = () => {
+    console.log(horarios);
     if (horarios) {
       return horarios.map((horario, index) => {
         return <option key={index}>{horario}</option>
@@ -109,19 +110,19 @@ function Modal({ closeModal }) {
         </div>
         <div className="inputs">
           <select onChange={({target}) => setEspecialidadeOption(target.value)}>
-            <option disabled selected hidden>Especialidade</option>
+            <option hidden>Especialidade</option>
             {renderEspecialidades()}
           </select>
           <select onChange={({target}) => setSelectedMedico(target.value)}>
-            <option disabled selected hidden>Médico</option>
+            <option hidden>Médico</option>
             {renderMedicos()}
           </select>
           <select onChange={({target}) => setSelectedData(target.value)}>
-            <option disabled selected hidden>Data</option>
+            <option hidden>Data</option>
             {datas && renderData()}
           </select>
           <select onChange={({target}) => setSelectedHorario(target.value)}>
-            <option disabled selected hidden>Horário</option>
+            <option hidden>Horário</option>
             {horarios && renderHorarios()}
           </select>
         </div>

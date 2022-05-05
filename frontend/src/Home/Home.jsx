@@ -91,6 +91,7 @@ function Home() {
               </tr>
             </thead>
             <tbody>
+              <></>
               {consultas && renderConsultasData()}
             </tbody>
           </table>
