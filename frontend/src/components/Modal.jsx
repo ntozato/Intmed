@@ -65,14 +65,15 @@ function Modal({ closeModal }) {
 
   const renderData = () => {
     if (datas) {
-      return <option>{datas}</option>
+      const formattedDate = datas.split("-").reverse().join("/");
+      return <option>{formattedDate}</option>
     }
   }
 
   const renderHorarios = () => {
     if (horarios) {
-      return horarios.map((horario) => {
-        return <option>{horario}</option>
+      return horarios.map((horario, index) => {
+        return <option key={index}>{horario}</option>
       })
     }
   }
