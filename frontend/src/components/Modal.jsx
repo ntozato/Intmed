@@ -10,6 +10,9 @@ function Modal({ closeModal }) {
   // const [agendas, setAgendas] = useState('');
   const [horarios, setHorarios] = useState('');
   const [datas, setDatas] = useState('');
+  const [selectedData, setSelectedData] = useState('');
+  const [selectedHorario, setSelectedHorario] = useState("");
+  const isConfirmBtnDisabled = !(especialidadeOption && selectedMedico && selectedData && selectedHorario);
 
   const fetchEspecialidades = async () => {
     const token = JSON.parse(localStorage.getItem('token'));
@@ -113,18 +116,18 @@ function Modal({ closeModal }) {
             <option disabled selected hidden>Médico</option>
             {renderMedicos()}
           </select>
-          <select>
+          <select onChange={({target}) => setSelectedData(target.value)}>
             <option disabled selected hidden>Data</option>
             {datas && renderData()}
           </select>
-          <select>
+          <select onChange={({target}) => setSelectedHorario(target.value)}>
             <option disabled selected hidden>Horário</option>
             {horarios && renderHorarios()}
           </select>
         </div>
         <div className='buttons'>
           <button type="button" className='cancel-btn' onClick={() => closeModal(false)}>Cancelar</button>
-          <button onClick={() => postConsulta()} type="button" className='confirm-btn'>Confirmar</button>
+          <button disabled={isConfirmBtnDisabled} onClick={() => postConsulta()} type="button" className='confirm-btn'>Confirmar</button>
         </div>
       </div>
     </div>
