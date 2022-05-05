@@ -13,7 +13,7 @@
 - Entre na pasta do repositório que você acabou de clonar:
   - `cd Intmed`
 
-2. Instale as dependências do backend
+2. Instale as dependências da api
 
 - `cd api`
 - `cd desafio-mock-server`
