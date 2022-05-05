@@ -10,8 +10,6 @@ function Login() {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [redirect, setRedirect] = useState(false);
-  // const [isUserInvalid, setIsUserInvalid] = useState(false);
 
   const showPassword = () => {
     if (passwordInputType === "password") {
@@ -36,16 +34,15 @@ function Login() {
       };
   
       const data = await api.login(user);
-      
+      console.log(data);
       if(data.data.token) {
         localStorage.setItem('token', `${JSON.stringify(data.data.token)}`);
-        setRedirect(true);
+        history.push("/home");
       }
   }
 
   return (
     <div className='content'>
-      { redirect && history.push("/home")}
     <div className="login-content">
         <div className="logo">
           <img src={logo} alt="logo" className="logo-box"/>
