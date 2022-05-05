@@ -12,8 +12,7 @@ function Home() {
   const [updateConsultas, setUpdateConsultas] = useState(false);
 
   const fetchConsultas = async () => {
-    const token = JSON.parse(localStorage.getItem('token'));
-    const response = await api.getConsultas(token);
+    const response = await api.get('/consultas');
 
     if (response) {
       const { data } = response;
@@ -23,9 +22,7 @@ function Home() {
   
   
   const deleteConsulta = async () => {
-    const token = JSON.parse(localStorage.getItem('token'));
-    console.log(token);
-    await api.removeConsulta(token);
+    await api.delete('/consultas/:id');
     if (updateConsultas === false) {
       setUpdateConsultas(true);
     } else {

@@ -33,7 +33,7 @@ function Login() {
         password
       };
   
-      const data = await api.login(user);
+      const data = await api.post('/users/login', user);
       console.log(data);
       if(data.data.token) {
         localStorage.setItem('token', `${JSON.stringify(data.data.token)}`);

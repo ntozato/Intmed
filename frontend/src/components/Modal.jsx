@@ -7,16 +7,18 @@ function Modal({ closeModal }) {
   const [especialidadeOption, setEspecialidadeOption] = useState('');
   const [medicos, setMedicos] = useState('');
   const [selectedMedico, setSelectedMedico] = useState('');
-  // const [agendas, setAgendas] = useState('');
   const [horarios, setHorarios] = useState('');
   const [datas, setDatas] = useState('');
   const [selectedData, setSelectedData] = useState('');
   const [selectedHorario, setSelectedHorario] = useState("");
-  const isConfirmBtnDisabled = !(especialidadeOption && selectedMedico && selectedData && selectedHorario);
+  const isConfirmBtnDisabled = !(
+    especialidadeOption 
+    && selectedMedico 
+    && selectedData 
+    && selectedHorario);
 
   const fetchEspecialidades = async () => {
-    const token = JSON.parse(localStorage.getItem('token'));
-    const response = await api.getEspecialidades(token);
+    const response = await api.get('/especialidades');
 
     if (response) {
       const { data } = response;
@@ -26,8 +28,7 @@ function Modal({ closeModal }) {
   }
 
   const fetchMedicos = async () => {
-    const token = JSON.parse(localStorage.getItem('token'));
-    const response = await api.getMedicos(token);
+    const response = await api.get('/medicos');
 
     if (response) {
       const { data } = response;
@@ -52,8 +53,7 @@ function Modal({ closeModal }) {
   };
 
   const fetchAgendas = async () => {
-    const token = JSON.parse(localStorage.getItem('token'));
-    const response = await api.getAgendas(token);
+    const response = await api.get('/agendas');
 
     if (response) {
       const { data } = response;
@@ -83,8 +83,7 @@ function Modal({ closeModal }) {
   }
 
   const postConsulta = async () => {
-    const token = await JSON.parse(localStorage.getItem('token'));
-    await api.postConsultas(token);
+    await api.post('/consultas', {});
     closeModal(false);
   }
 
