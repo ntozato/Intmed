@@ -127,7 +127,7 @@ function Modal({ closeModal }) {
         </div>
         <div className='buttons'>
           <button type="button" className='cancel-btn' onClick={() => closeModal(false)}>Cancelar</button>
-          <button disabled={isConfirmBtnDisabled} onClick={() => postConsulta()} type="button" className='confirm-btn'>Confirmar</button>
+          <button disabled={isConfirmBtnDisabled} onClick={() => postConsulta()} type="button" className={isConfirmBtnDisabled ? 'confirm-btn-disabled' : 'confirm-btn'}>Confirmar</button>
         </div>
       </div>
     </div>

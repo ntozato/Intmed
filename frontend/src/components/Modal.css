@@ -54,6 +54,17 @@ select:hover {
   border: 1px solid #49B4BB;
 }
 
+.confirm-btn-disabled {
+  opacity: 0.4;
+  width: 180px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  background-color: #49B4BB;
+  color: white;
+  cursor: pointer;
+}
+
 .confirm-btn {
   width: 180px;
   height: 40px;
