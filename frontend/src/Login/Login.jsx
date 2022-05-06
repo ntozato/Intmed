@@ -34,7 +34,6 @@ function Login() {
       };
   
       const data = await api.post('/users/login', user);
-      console.log(data);
       if(data.data.token) {
         localStorage.setItem('token', `${JSON.stringify(data.data.token)}`);
         history.push("/home");

@@ -14,6 +14,7 @@ function Modal({ closeModal }) {
   const [isMedicoInputDisabled, setIsMedicoInputDisabled] = useState(true);
   const [isDataInputDisabled, setIsDataInputDisabled] = useState(true);
   const [isHorarioInputDisabled, setIsHorarioInputDisabled] = useState(true);
+  const [agendaId, setAgendaId] = useState('');
   const isConfirmBtnDisabled = !(
     especialidadeOption 
     && selectedMedico 
@@ -64,6 +65,8 @@ function Modal({ closeModal }) {
 
     if (response) {
       const { data } = response;
+      const id = data.filter((e) => e.medico.nome === selectedMedico)[0]?.id;
+      setAgendaId(id);
       const horario = data.filter((e) => e.medico.nome === selectedMedico)[0]?.horarios;
       const dias = data.filter((e) => e.medico.nome === selectedMedico)[0]?.dia;
       setDatas(dias);
@@ -91,7 +94,7 @@ function Modal({ closeModal }) {
   }
 
   const postConsulta = async () => {
-    await api.post('/consultas', {});
+    await api.post('/consultas', {agenda_id: agendaId, horario: selectedHorario});
     closeModal(false);
   }
 
