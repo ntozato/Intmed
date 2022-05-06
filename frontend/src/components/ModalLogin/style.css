@@ -1,10 +1,10 @@
-.remove-alert-container {
+.alert-container {
   position: fixed;
   width: 300px;
   top: 35%;
 }
 
-.remove-alert {
+.alert {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -24,13 +24,7 @@
   color: #444444;
 }
 
-.alert-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.yes-btn {
+.back-btn {
   background-color:#49B4BB;
   color: white;
   border: none;
@@ -40,16 +34,6 @@
   cursor: pointer;
 }
 
-.yes-btn:hover {
+.back-btn:hover {
   opacity:0.9;
-}
-
-.cancel-btn {
-  background-color:#020631;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  height: 27px;
-  width: 60%;
-  margin-top: 2%;
 }
