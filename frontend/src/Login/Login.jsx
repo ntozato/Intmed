@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import logo from '../../src/intmed-logo.png';
 import eye from '../../src/vector.svg';
 import api from '../api/index';
+import ModalLogin from '../components/ModalLogin/ModalLogin';
 import './style.css';
 
 function Login() {
@@ -10,6 +11,7 @@ function Login() {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [openModal, setOpenModal] = useState(false);
 
   const showPassword = () => {
     if (passwordInputType === "password") {
@@ -27,27 +29,32 @@ function Login() {
     };
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+
+    try {
       const user = {
         username,
         password
       };
-  
       const data = await api.post('/users/login', user);
       if(data.data.token) {
         localStorage.setItem('token', `${JSON.stringify(data.data.token)}`);
         history.push("/home");
       }
+    } catch (e) {
+      setOpenModal(true);
+    }
   }
 
   return (
     <div className='content'>
+      {openModal && <ModalLogin loginModal={setOpenModal} />}
     <div className="login-content">
         <div className="logo">
           <img src={logo} alt="logo" className="logo-box"/>
           <h1>Medicar</h1>
         </div>
-        <form>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div className="inputs">
             <input onChange={({target}) => handleLogin(target)} name="email" className="email-input" type="text" placeholder="Email ou Login" />
             <div className="eye-input-div">
@@ -63,7 +70,7 @@ function Login() {
           </div>
           <div className="buttons">
             <button type="button" className="create-btn" onClick={() => history.push("/create-account")}><b>Criar conta</b></button>
-            <button type="button" className="access-btn" onClick={() => handleSubmit()}><b>Acessar</b></button>
+            <button type="button" onClick={() => handleSubmit()} className="access-btn"><b>Acessar</b></button>
           </div>
         </form>
       </div>

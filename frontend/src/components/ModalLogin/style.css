@@ -1,0 +1,55 @@
+.remove-alert-container {
+  position: fixed;
+  width: 300px;
+  top: 35%;
+}
+
+.remove-alert {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 9999px 700px;
+  background-color: white;
+  width: 50%;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding: 2% 2% 2%;
+}
+
+.title {
+  justify-content: center;
+  font-family: sans-serif;
+  color: #444444;
+}
+
+.alert-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.yes-btn {
+  background-color:#49B4BB;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  height: 27px;
+  width: 60%;
+  cursor: pointer;
+}
+
+.yes-btn:hover {
+  opacity:0.9;
+}
+
+.cancel-btn {
+  background-color:#020631;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  height: 27px;
+  width: 60%;
+  margin-top: 2%;
+}

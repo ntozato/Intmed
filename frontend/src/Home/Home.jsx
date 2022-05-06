@@ -4,7 +4,7 @@ import logo from '../../src/intmed-logo.png';
 import vector from '../../src/mais-vector.svg';
 import xvector from '../../src/xvector.svg';
 import './style.css';
-import Modal from "../components/Modal";
+import Modal from "../components/Modal/Modal";
 
 function Home() {
   const [consultas, setConsultas] = useState('');
