@@ -20,7 +20,7 @@ function Modal({ closeModal }) {
     && selectedMedico 
     && selectedData 
     && selectedHorario);
-
+  
   const fetchEspecialidades = async () => {
     const response = await api.get('/especialidades');
 
@@ -74,14 +74,20 @@ function Modal({ closeModal }) {
     };
   };
 
-  const renderData = () => {      
-    if (datas === undefined) {
-      return <option disabled={true}>Não há datas disponíveis</option>
-    } else {
+  const renderData = () => {
+    if (datas) {
       const formattedDate = datas.split("-").reverse().join("/");
       return <option>{formattedDate}</option>
     }
-  } 
+    if (!datas) {
+      return (
+        <>
+          <option hidden>Data</option>
+          <option disabled={true}>Não há datas disponíveis</option>
+        </>
+      );
+    }
+  }
 
   const renderHorarios = () => {
     if (horarios) {
@@ -103,10 +109,19 @@ function Modal({ closeModal }) {
   }, []);
 
   useEffect(() => {
+    setSelectedMedico('');
+    setDatas('');
+    setSelectedHorario('');
+    setHorarios('');
+    setSelectedData('');
+    setIsHorarioInputDisabled(true);
+    setIsDataInputDisabled(true);
     fetchMedicos();
   }, [especialidadeOption]);
 
   useEffect(() => {
+    setSelectedData('');
+    setSelectedHorario('');
     setHorarios('');
     setDatas('');
     fetchAgendas();
