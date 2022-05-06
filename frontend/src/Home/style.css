@@ -81,6 +81,7 @@ section {
   font-size: 11px;
   margin-right: 8px;
   cursor: pointer;
+  z-index: 0;
 }
 
 .new-button:hover {

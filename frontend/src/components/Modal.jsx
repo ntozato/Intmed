@@ -11,6 +11,9 @@ function Modal({ closeModal }) {
   const [datas, setDatas] = useState('');
   const [selectedData, setSelectedData] = useState('');
   const [selectedHorario, setSelectedHorario] = useState("");
+  const [isMedicoInputDisabled, setIsMedicoInputDisabled] = useState(true);
+  const [isDataInputDisabled, setIsDataInputDisabled] = useState(true);
+  const [isHorarioInputDisabled, setIsHorarioInputDisabled] = useState(true);
   const isConfirmBtnDisabled = !(
     especialidadeOption 
     && selectedMedico 
@@ -23,7 +26,6 @@ function Modal({ closeModal }) {
     if (response) {
       const { data } = response;
       setEspecialidades(data);
-      console.log(data);
     };
   }
 
@@ -46,11 +48,16 @@ function Modal({ closeModal }) {
 
   const renderMedicos = () => {
     if (medicos) {
-      return medicos.filter((m) => m.especialidade.nome === especialidadeOption).map((e, index) => {
+      const med = medicos.filter((m) => m.especialidade.nome === especialidadeOption).map((e, index) => {
         return <option key={index}>{e.nome}</option>
       });
-    };
-  };
+      if (med[0]) {
+        return med;
+      } else {
+        return <option disabled={true}>Não há médicos disponíveis</option>
+      }
+    }
+  }
 
   const fetchAgendas = async () => {
     const response = await api.get('/agendas');
@@ -61,24 +68,25 @@ function Modal({ closeModal }) {
       const dias = data.filter((e) => e.medico.nome === selectedMedico)[0]?.dia;
       setDatas(dias);
       setHorarios(horario);
-      console.log(dias);
-      console.log(horario);
     };
   };
 
-  const renderData = () => {
-    if (datas) {
+  const renderData = () => {      
+    if (datas === undefined) {
+      return <option disabled={true}>Não há datas disponíveis</option>
+    } else {
       const formattedDate = datas.split("-").reverse().join("/");
       return <option>{formattedDate}</option>
     }
-  }
+  } 
 
   const renderHorarios = () => {
-    console.log(horarios);
     if (horarios) {
       return horarios.map((horario, index) => {
         return <option key={index}>{horario}</option>
-      })
+      });
+    } else {
+      return <option disabled={true}>Não há horários disponíveis</option>
     }
   }
 
@@ -108,21 +116,21 @@ function Modal({ closeModal }) {
           <h3>Nova Consulta</h3>
         </div>
         <div className="inputs">
-          <select onChange={({target}) => setEspecialidadeOption(target.value)}>
+          <select onChange={({target}) => {setEspecialidadeOption(target.value); setIsMedicoInputDisabled(false)}}>
             <option hidden>Especialidade</option>
             {renderEspecialidades()}
           </select>
-          <select onChange={({target}) => setSelectedMedico(target.value)}>
+          <select disabled={isMedicoInputDisabled} onChange={({target}) => {setSelectedMedico(target.value); setIsDataInputDisabled(false)}}>
             <option hidden>Médico</option>
             {renderMedicos()}
           </select>
-          <select onChange={({target}) => setSelectedData(target.value)}>
+          <select disabled={isDataInputDisabled} onChange={({target}) => {setSelectedData(target.value); setIsHorarioInputDisabled(false)}}>
             <option hidden>Data</option>
-            {datas && renderData()}
+            {renderData()}
           </select>
-          <select onChange={({target}) => setSelectedHorario(target.value)}>
+          <select disabled={isHorarioInputDisabled} onChange={({target}) => setSelectedHorario(target.value)}>
             <option hidden>Horário</option>
-            {horarios && renderHorarios()}
+            {renderHorarios()}
           </select>
         </div>
         <div className='buttons'>
