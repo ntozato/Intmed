@@ -60,7 +60,7 @@ function Modal({ closeModal }) {
     }
   }
 
-  const fetchAgendas = async () => {
+  const fetchAgendas = async (selectedMedico) => {
     const response = await api.get('/agendas');
 
     if (response) {
@@ -124,7 +124,7 @@ function Modal({ closeModal }) {
     setSelectedHorario('');
     setHorarios('');
     setDatas('');
-    fetchAgendas();
+    fetchAgendas(selectedMedico);
   }, [selectedMedico]);
 
   return (
