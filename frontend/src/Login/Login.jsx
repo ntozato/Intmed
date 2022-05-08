@@ -57,7 +57,7 @@ function Login() {
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="inputs">
             <input onChange={({target}) => handleLogin(target)} name="email" className="email-input" type="text" placeholder="Email ou Login" />
-            <div className="eye-input-div">
+            <div className="eye-input-div-login">
               <input onChange={({target}) => handleLogin(target)} className="password-input" type={passwordInputType} placeholder="Senha" />
               <button type="button" className="eye-button" onClick={() => showPassword()}>
                 <img src={eye} alt="eye" className="eye" />
