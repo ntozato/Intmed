@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import PropTypes from 'prop-types';
 
 function ModalLogin({loginModal}) {
   return(
@@ -12,6 +13,10 @@ function ModalLogin({loginModal}) {
       </div>
     </div>
   )
+}
+
+ModalLogin.propTypes = {
+  loginModal: PropTypes.func.isRequired,
 }
 
 export default ModalLogin;

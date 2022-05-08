@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../api/index';
 import './Modal.css';
+import PropTypes from 'prop-types';
 
 function Modal({ closeModal }) {
   const [especialidades, setEspecialidades] = useState('');
@@ -158,6 +159,10 @@ function Modal({ closeModal }) {
       </div>
     </div>
   );
+}
+
+Modal.propTypes = {
+  closeModal: PropTypes.func.isRequired,
 }
 
 export default Modal;
