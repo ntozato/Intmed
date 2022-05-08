@@ -50,8 +50,8 @@ function Modal({ closeModal }) {
 
   const renderMedicos = () => {
     if (medicos) {
-      const med = medicos.filter((m) => m.especialidade.nome === especialidadeOption).map((e, index) => {
-        return <option key={index}>{e.nome}</option>
+      const med = medicos.filter((m) => m.especialidade.nome === especialidadeOption).map((e) => {
+        return <option key={e.nome}>{e.nome}</option>
       });
       if (med[0]) {
         return med;
