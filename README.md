@@ -3,7 +3,7 @@
 
 ## Contexto
  
- Esse é um repositório criado para armazenar o desafio prático do processo seletivo da Intmed. Foi desenvolvida uma aplicação(frontend) onde é possível acompanhar e agendar consultas médicas. O projeto foi desenvolvido em React.js e integração realizada com a seguinte [API](https://github.com/Intmed-Software/desafio-mock-server).  
+ Esse é um repositório criado para armazenar o desafio técnico do processo seletivo da Intmed. Foi desenvolvida uma aplicação (frontend) onde é possível acompanhar e agendar consultas médicas. O projeto foi desenvolvido em React.js e integração realizada com a seguinte [API](https://github.com/Intmed-Software/desafio-mock-server).  
 
 ## Instalação
 
