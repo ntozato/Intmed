@@ -139,11 +139,17 @@ function Modal({ closeModal }) {
             <option hidden>Especialidade</option>
             {renderEspecialidades()}
           </select>
-          <select disabled={isMedicoInputDisabled} onChange={({target}) => {setSelectedMedico(target.value); setIsDataInputDisabled(false)}}>
+          <select
+          disabled={isMedicoInputDisabled}
+          onChange={({target}) => {setSelectedMedico(target.value); setIsDataInputDisabled(false)}}
+          >
             <option hidden>Médico</option>
             {renderMedicos()}
           </select>
-          <select disabled={isDataInputDisabled} onChange={({target}) => {setSelectedData(target.value); setIsHorarioInputDisabled(false)}}>
+          <select
+          disabled={isDataInputDisabled}
+          onChange={({target}) => {setSelectedData(target.value); setIsHorarioInputDisabled(false)}}
+          >
             <option hidden>Data</option>
             {renderData()}
           </select>
@@ -154,7 +160,14 @@ function Modal({ closeModal }) {
         </div>
         <div className='buttons'>
           <button type="button" className='cancel-btn' onClick={() => closeModal(false)}>Cancelar</button>
-          <button disabled={isConfirmBtnDisabled} onClick={() => postConsulta()} type="button" className={isConfirmBtnDisabled ? 'confirm-btn-disabled' : 'confirm-btn'}>Confirmar</button>
+          <button
+          disabled={isConfirmBtnDisabled}
+          onClick={() => postConsulta()}
+          type="button"
+          className={isConfirmBtnDisabled ? 'confirm-btn-disabled' : 'confirm-btn'}
+          >
+            Confirmar
+          </button>
         </div>
       </div>
     </div>

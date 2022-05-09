@@ -56,9 +56,19 @@ function Login() {
         </div>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="inputs">
-            <input onChange={({target}) => handleLogin(target)} name="email" className="email-input" type="text" placeholder="Email ou Login" />
+            <input
+            onChange={({target}) => handleLogin(target)}
+            name="email"
+            className="email-input"
+            type="text"
+            placeholder="Email ou Login"
+            />
             <div className="eye-input-div-login">
-              <input onChange={({target}) => handleLogin(target)} className="password-input" type={passwordInputType} placeholder="Senha" />
+              <input
+              onChange={({target}) => handleLogin(target)}
+              className="password-input"
+              type={passwordInputType}
+              placeholder="Senha" />
               <button type="button" className="eye-button" onClick={() => showPassword()}>
                 <img src={eye} alt="eye" className="eye" />
               </button>
@@ -69,8 +79,20 @@ function Login() {
             <p className="remember-password-text">Lembrar minha senha</p>
           </div>
           <div className="buttons">
-            <button type="button" className="create-btn" onClick={() => history.push("/create-account")}><b>Criar conta</b></button>
-            <button type="button" onClick={() => handleSubmit()} className="access-btn"><b>Acessar</b></button>
+            <button
+            type="button"
+            className="create-btn"
+            onClick={() => history.push("/create-account")}
+            >
+              <b>Criar conta</b>
+            </button>
+            <button
+            type="button"
+            onClick={() => handleSubmit()}
+            className="access-btn"
+            >
+              <b>Acessar</b>
+            </button>
           </div>
         </form>
       </div>
